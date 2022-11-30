@@ -10,7 +10,11 @@ export function getUser() {
 
 export async function getFamilies() {
     // fetch all families and their bunnies
-    // return checkError(response);
+    const response = await client
+        .from('loving_families')
+        .select('*, fuzzy_bunnies (*)')
+        .match({ 'fuzzy_bunnies.user_id': client.auth.session().user.id });
+    return checkError(response);
 }
 
 export async function deleteBunny(id) {
