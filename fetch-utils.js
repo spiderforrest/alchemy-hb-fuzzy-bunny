@@ -10,17 +10,25 @@ export function getUser() {
 
 export async function getFamilies() {
     // fetch all families and their bunnies
-    // return checkError(response);
+    const response = await client
+        .from('loving_families')
+        .select('*, fuzzy_bunnies (*)')
+        .match({ 'fuzzy_bunnies.user_id': client.auth.session().user.id });
+    return checkError(response);
 }
 
 export async function deleteBunny(id) {
     // delete a single bunny using the id argument
-    // return checkError(response);
+    const response = await client.from('fuzzy_bunnies').delete().match({ id: id }).single();
+    return checkError(response);
 }
 
 export async function createBunny(bunny) {
     // create a bunny using the bunny argument
-    // return checkError(response);
+    const response = await client
+        .from('fuzzy_bunnies')
+        .insert({ name: bunny.name, family_id: bunny.family_id, user_id: client.auth.user().id });
+    return checkError(response);
 }
 
 // MARTHA STEWART (PRE-MADE) FUNCTIONS
