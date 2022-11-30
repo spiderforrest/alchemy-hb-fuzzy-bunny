@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.7/dist/umd/supabase.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/home.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="gutter-right logo">
+            <a href="../families">See all families</a>
+            <a href="../create">Add a bunny</a>
+        </div>
+    </header>
+    <button id="logout">Logout</button>
+    <main class="create-main">
+        <h2>Add a new bunny</h2>
+        <form class="bunny-form">
+            <label>
+                Bunny's name
+                <input name="bunny-name" />
+            </label>
+            <label>
+                Belongs to
+                <select name="family-id">
+
+                </select>
+            </label>
+            <button>Submit</button>
+        </form>
+    </main>
+    <footer>
+        <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
+    </footer>
+    <script type="module" src="./create.js"></script>
+</body>
+
+</html>
